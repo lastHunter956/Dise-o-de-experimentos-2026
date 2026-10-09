@@ -1,4 +1,4 @@
-# Talleres de Diseno de Experimentos (DOE): Factoriales (Parte 1, Parte 2 y Actividad 4)
+# Talleres de Diseno de Experimentos (DOE): Factoriales (Partes 1, 2, Actividades 4 y 5)
 
 ---
 
@@ -7,6 +7,7 @@
 - **`Taller_Factorial_Parte_1_Resuelto.ipynb`**: Notebook Jupyter de la Parte 1 (29 celdas, 13 figuras pre-renderizadas en `dark_background`).
 - **`Taller_Factorial_Parte_2_Resuelto.ipynb`**: Notebook Jupyter de la Parte 2 (22 celdas, 9 figuras pre-renderizadas en `dark_background`).
 - **`Taller_Factorial_2^2.ipynb`**: Mega Notebook Integrador del Capítulo 6 (Incluye 5 casos prácticos: $2^2$, $2^3$, $2^5$, Puntos Centrales y Bloques).
+- **`Taller_Factorial_2^5.ipynb`**: Notebook Completo y Riguroso de la Actividad 5 (Experimento Factorial $2^5$ No Replicado en Fabricación de Semiconductores, Colapsación a $2^3$ con $n=4$ réplicas, Gráficos de Efectos, Daniel, Pareto, Residuos y las 25 respuestas auditadas).
 - **`Makefile`**: Automatizacion determinista con `uv` para instalacion, registro de kernel y pruebas.
 
 ---
@@ -21,8 +22,9 @@ make install     # Sincroniza e instala las dependencias en .venv
 make kernel      # Registra el kernel de Jupyter para VS Code
 make execute-p1  # Valida y ejecuta el notebook de la Parte 1
 make execute-p2  # Valida y ejecuta el notebook de la Parte 2
-make execute-p3  # Valida y ejecuta el notebook integrador del Taller_Factorial_2^2
-make execute     # Ejecuta los notebooks secuencialmente
+make execute-p4  # Valida y ejecuta el notebook de la Actividad 4 (2^2)
+make execute-p5  # Valida y ejecuta el notebook de la Actividad 5 (2^5)
+make execute     # Ejecuta todos los notebooks secuencialmente
 make test        # Alias para ejecucion y validacion de pruebas
 make lab         # Abre Jupyter Lab con el entorno uv
 make all         # Ejecuta install + kernel + execute en un solo paso

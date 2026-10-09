@@ -1,4 +1,4 @@
-.PHONY: help install sync kernel execute execute-p1 execute-p2 test lab clean all
+.PHONY: help install sync kernel execute execute-p1 execute-p2 execute-p3 execute-p4 execute-p5 test lab clean all
 
 # Variables del entorno y proyecto
 UV = uv
@@ -7,6 +7,7 @@ JUPYTER = $(UV) run jupyter
 NOTEBOOK_P1 = Taller_Factorial_Parte_1_Resuelto.ipynb
 NOTEBOOK_P2 = Taller_Factorial_Parte_2_Resuelto.ipynb
 NOTEBOOK_P4 = Taller_Factorial_2^2.ipynb
+NOTEBOOK_P5 = Taller_Factorial_2^5.ipynb
 KERNEL_NAME = maestro-seferino
 KERNEL_DISPLAY = Python (maestro-seferino - uv)
 
@@ -55,8 +56,16 @@ execute-p4: ## Ejecuta el notebook de la Actividad 4 (2^2) de forma no interacti
 		$(NOTEBOOK_P4)
 	@echo "[OK] Actividad 4 ejecutada exitosamente."
 
+execute-p5: ## Ejecuta el notebook de la Actividad 5 (2^5) de forma no interactiva
+	@echo "[INFO] Ejecutando $(NOTEBOOK_P5)..."
+	$(JUPYTER) nbconvert --to notebook --execute \
+		--ExecutePreprocessor.timeout=300 \
+		--output $(NOTEBOOK_P5) \
+		$(NOTEBOOK_P5)
+	@echo "[OK] Actividad 5 ejecutada exitosamente."
 
-execute: execute-p1 execute-p2 execute-p4 ## Ejecuta los notebooks (Parte 1, Parte 2 y Actividad 4)
+
+execute: execute-p1 execute-p2 execute-p4 execute-p5 ## Ejecuta todos los notebooks (Parte 1, Parte 2, Actividad 4 y Actividad 5)
 
 test: execute ## Alias para validar la ejecucion completa de los notebooks
 
