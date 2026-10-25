@@ -7,8 +7,9 @@
 - **`Taller_Factorial_Parte_1_Resuelto.ipynb`**: Notebook Jupyter de la Parte 1 (29 celdas, 13 figuras pre-renderizadas en `dark_background`).
 - **`Taller_Factorial_Parte_2_Resuelto.ipynb`**: Notebook Jupyter de la Parte 2 (22 celdas, 9 figuras pre-renderizadas en `dark_background`).
 - **`Taller_Factorial_2^2.ipynb`**: Mega Notebook Integrador del Capítulo 6 (Incluye 5 casos prácticos: $2^2$, $2^3$, $2^5$, Puntos Centrales y Bloques).
-- **`Taller_Factorial_2^5.ipynb`**: Notebook Completo y Riguroso de la Actividad 5 (Experimento Factorial $2^5$ No Replicado en Fabricación de Semiconductores, Colapsación a $2^3$ con $n=4$ réplicas, Gráficos de Efectos, Daniel, Pareto, Residuos y las 25 respuestas auditadas).
-- **`Makefile`**: Automatizacion determinista con `uv` para instalacion, registro de kernel y pruebas.
+- **`Taller_Factorial_2^5.ipynb`**: Notebook de la Actividad 5 con preguntas evaluativas.
+- **`Experimento_2_5_Semiconductores_Integrador.ipynb`**: Notebook oficial independiente del **"Experimento 2^5 no replicado: ejemplo integrador"** (Páginas 217 a 226 de Gutiérrez & De la Vara), con Tablas 6.13 a 6.18, Ecuación 6.16, Colapsación formal a $2^3$, y 7 figuras profesionales pre-renderizadas en `dark_background`.
+- **`Makefile`**: Automatizacion determinista con `uv` para instalacion, registro de kernel, auditoria y pruebas.
 
 ---
 
@@ -17,17 +18,19 @@
 El proyecto esta completamente gestionado con `uv`. Se proveen comandos directos en el `Makefile`:
 
 ```bash
-make help        # Muestra la lista de comandos disponibles
-make install     # Sincroniza e instala las dependencias en .venv
-make kernel      # Registra el kernel de Jupyter para VS Code
-make execute-p1  # Valida y ejecuta el notebook de la Parte 1
-make execute-p2  # Valida y ejecuta el notebook de la Parte 2
-make execute-p4  # Valida y ejecuta el notebook de la Actividad 4 (2^2)
-make execute-p5  # Valida y ejecuta el notebook de la Actividad 5 (2^5)
-make execute     # Ejecuta todos los notebooks secuencialmente
-make test        # Alias para ejecucion y validacion de pruebas
-make lab         # Abre Jupyter Lab con el entorno uv
-make all         # Ejecuta install + kernel + execute en un solo paso
+make help               # Muestra la lista de comandos disponibles
+make install            # Sincroniza e instala las dependencias en .venv
+make kernel             # Registra el kernel de Jupyter para VS Code
+make execute-p1         # Valida y ejecuta el notebook de la Parte 1
+make execute-p2         # Valida y ejecuta el notebook de la Parte 2
+make execute-p4         # Valida y ejecuta el notebook de la Actividad 4 (2^2)
+make execute-p5         # Valida y ejecuta el notebook de la Actividad 5 (2^5)
+make execute-integrador # Ejecuta el nuevo notebook integrador del Experimento 2^5
+make audit              # Ejecuta la auditoría determinista contra el texto guía
+make execute            # Ejecuta todos los notebooks y la auditoría
+make test               # Alias para validación completa
+make lab                # Abre Jupyter Lab con el entorno uv
+make all                # Ejecuta install + kernel + execute en un solo paso
 ```
 
 ---
