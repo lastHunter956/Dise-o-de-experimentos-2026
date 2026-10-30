@@ -1,4 +1,4 @@
-.PHONY: help install sync kernel execute execute-p1 execute-p2 execute-p3 execute-p4 execute-p5 execute-integrador execute-statgraphics execute-actividad6 execute-actividad7 statreport audit test lab clean all
+.PHONY: help install sync kernel execute execute-p1 execute-p2 execute-p3 execute-p4 execute-p5 execute-integrador execute-statgraphics execute-actividad6 execute-actividad7 execute-taguchi statreport audit test lab clean all
 
 # Variables del entorno y proyecto
 UV = uv
@@ -12,6 +12,7 @@ NOTEBOOK_INTEGRADOR = Experimento_2_5_Semiconductores_Integrador.ipynb
 NOTEBOOK_STATGRAPHICS = Taller_Statgraphics_DOE_Integrador.ipynb
 NOTEBOOK_ACTIVIDAD6 = Taller_Factorial_Fraccionado_2_7-4_Vibracion_Resuelto.ipynb
 NOTEBOOK_ACTIVIDAD7 = Taller_Factorial_2_5_y_Fraccionados_Resuelto.ipynb
+NOTEBOOK_TAGUCHI = Taller_Taguchi_L16_Lechadas_Cemento_Resuelto.ipynb
 KERNEL_NAME = maestro-seferino
 KERNEL_DISPLAY = Python (maestro-seferino - uv)
 
@@ -100,6 +101,14 @@ execute-actividad7: ## Ejecuta el notebook de la Actividad 7 (2^5 y Fraccionados
 		$(NOTEBOOK_ACTIVIDAD7)
 	@echo "[OK] Actividad 7 ejecutada exitosamente."
 
+execute-taguchi: ## Ejecuta el notebook de Diseño Robusto Taguchi L16 (Lechadas de Cemento)
+	@echo "[INFO] Ejecutando $(NOTEBOOK_TAGUCHI)..."
+	$(JUPYTER) nbconvert --to notebook --execute \
+		--ExecutePreprocessor.timeout=300 \
+		--output $(NOTEBOOK_TAGUCHI) \
+		$(NOTEBOOK_TAGUCHI)
+	@echo "[OK] Taller Taguchi L16 ejecutado exitosamente."
+
 statreport: ## Compila el documento StatReport oficial de Statgraphics en HTML
 	@echo "[INFO] Compilando StatReport_Actividad_DOE_Semiconductores.html..."
 	UV_CACHE_DIR=/tmp/uv_cache $(UV) run python -m maestro_seferino.stat_reporter
@@ -110,6 +119,7 @@ audit: ## Ejecuta la auditoria determinista de respuestas contra ground truth
 	python3 .agents/scripts/audit_2k_results.py
 	python3 .agents/scripts/audit_actividad6.py
 	python3 .agents/scripts/audit_actividad7.py
+	python3 .agents/scripts/audit_taguchi_l16.py
 
 execute: execute-p1 execute-p2 execute-p4 execute-p5 execute-integrador execute-statgraphics audit ## Ejecuta todos los notebooks y valida la auditoria
 
